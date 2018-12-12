@@ -1,0 +1,20 @@
+@import '../../assets/scss/variables';
+
+.logo-wrapper {
+	width: 3.5rem;
+}
+img {
+	width: 100%;
+	height: 100%;
+}
+
+.navbar {
+	border-bottom: #008ed6 3px solid;
+	// opacity: 0.8;
+}
+
+.nav-link.active {
+	color: $accent-color !important;
+	text-decoration: underline;
+
+}

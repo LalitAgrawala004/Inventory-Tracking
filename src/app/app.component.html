@@ -1,7 +1,11 @@
 <div class="layout-overflow">
-  <div class="layout-canvas">
-    <!-- HEADER -->
-    <!-- CONTENT -->
-    <!-- Footer -->
-  </div>
+	<div class="layout-canvas">
+		<!-- HEADER -->
+		<app-header></app-header>
+		<!-- CONTENT -->
+		<div id="layout-view" class="layout-view">
+			<router-outlet></router-outlet>
+		</div>
+		<!-- Footer -->
+	</div>
 </div>

@@ -1,0 +1,17 @@
+.home-wrapper {
+	background: url(../../../assets/images/home-page.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	min-height: 86vh;
+}
+
+
+.home-wrapper .dark-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 86vh;
+	background: rgba(0, 0, 0, 0.7);
+  }

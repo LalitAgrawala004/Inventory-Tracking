@@ -1,3 +1,4 @@
+@import '../assets/scss/base.scss';
 @import '../assets/scss/variables';
 
 .layout-overflow {
@@ -10,4 +11,8 @@
 	position: relative;
 	left: 0;
 	width: 100%;
+}
+
+.layout-view {
+	margin-top: 80px;
 }
