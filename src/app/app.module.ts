@@ -1,23 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { PagesModule } from './pages/pages.module';
 
-import { AppRoutingModule } from './app-routing.module';
+
+import { routes } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './pages/home/home.component';
 
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		HeaderComponent,
-		HomeComponent
+		HeaderComponent
 	],
 	imports: [
 		BrowserModule,
-
-		AppRoutingModule
+		PagesModule,
+		RouterModule.forRoot(routes, { useHash: true }),
 	],
 	providers: [],
 	bootstrap: [AppComponent]

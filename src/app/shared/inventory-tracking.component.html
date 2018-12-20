@@ -1,0 +1,58 @@
+<form [formGroup]="inventoryForm">
+	<div class="form-group">
+		<label>Purchase Date</label>
+		<input type="text" class="form-control" [ngClass]="{ 'is-invalid': form.dob.errors &amp;&amp; !form.dob.pristine }"
+		 formControlName="dob">
+		<div *ngIf="form.dob.errors &amp;&amp; !form.dob.pristine" class="invalid-feedback">
+			<div *ngIf="form.dob.errors.pattern">Date format should be yyyy-mm-dd.</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label>Supplier Name</label>
+		<input type="text" class="form-control" [ngClass]="{ 'is-invalid': form.supplier.errors &amp;&amp; !form.supplier.pristine }"
+		 formControlName="supplier">
+		<!-- <div *ngIf="form.supplier.errors &amp;&amp; !form.supplier.pristine" class="invalid-feedback">
+			</div> -->
+	</div>
+	<div class="form-group">
+		<label>Model</label>
+		<input type="text" class="form-control" [ngClass]="{ 'is-invalid': form.model.errors &amp;&amp; !form.model.pristine }"
+		 formControlName="model">
+		<!-- <div *ngIf="form.supplier.errors &amp;&amp; !form.supplier.pristine" class="invalid-feedback">
+					</div> -->
+	</div>
+	<div class="form-group">
+		<label>
+			Size
+		</label>
+		<select class="form-control" formControlName="size">
+			<option [ngValue]="size" *ngFor="let size of sizes">
+				{{size.name}}
+			</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label>
+			Company
+		</label>
+		<select class="form-control" formControlName="company">
+			<option [ngValue]="company" *ngFor="let company of companies">
+				{{company.name}}
+			</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label>Quantity</label>
+		<input type="text" class="form-control" [ngClass]="{ 'is-invalid': form.quantity.errors &amp;&amp; !form.quantity.pristine }"
+		 formControlName="quantity">
+		<!-- <div *ngIf="form.supplier.errors &amp;&amp; !form.supplier.pristine" class="invalid-feedback">
+								</div> -->
+	</div>
+	<div class="form-group">
+		<label>Salesman</label>
+		<input type="text" class="form-control" [ngClass]="{ 'is-invalid': form.salesman.errors &amp;&amp; !form.salesman.pristine }"
+		 formControlName="salesman">
+		<!-- <div *ngIf="form.supplier.errors &amp;&amp; !form.supplier.pristine" class="invalid-feedback">
+									</div> -->
+	</div>
+</form>
