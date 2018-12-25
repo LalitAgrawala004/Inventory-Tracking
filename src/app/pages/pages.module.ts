@@ -8,17 +8,23 @@ import { routes } from './pages.routes';
 import { HomeComponent } from './home/home.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 
+import { PurchaseService } from './purchase/purchase.service';
+import { SalesComponent } from './sales/sales.component';
+
 @NgModule({
 	declarations: [
 		HomeComponent,
-		PurchaseComponent
+		PurchaseComponent,
+		SalesComponent
 	],
 	imports: [
 		BrowserModule,
 		RouterModule.forChild(routes),
 		SharedModule
 	],
-	providers: [],
+	providers: [
+		PurchaseService
+	],
 	bootstrap: []
 })
 export class PagesModule { }
