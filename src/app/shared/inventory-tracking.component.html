@@ -1,90 +1,65 @@
 <form [formGroup]="parent">
 	<div class="form-group">
-			<label>Category</label>
-			<select class="form-control" formControlName="category">
-				<option [ngValue]="category" *ngFor="let category of categories">
-					{{category}}
-				</option>
-			</select>
-		</div>	
-	
-		<div class="form-group">
-				<label>Godown</label>
-				<select class="form-control" formControlName="godown">
-		<option [ngValue]="godown" *ngFor="let godown of godowns">
-						{{godown}}
-					</option>
-				</select>
-			</div>	
-
-
-	<div class="form-group">
-		<label>Purchase Date</label>
-		<input type="date" class="form-control" [ngClass]="{ 'is-invalid': form.purchaseDate.errors &amp;&amp; !form.purchaseDate.pristine }"
-		 formControlName="purchaseDate">
-		<!-- <div *ngIf="form.purchaseDate.errors &amp;&amp; !form.purchaseDate.pristine" class="invalid-feedback">
-			<div *ngIf="form.purchaseDate.errors.pattern">Date format should be yyyy-mm-dd.</div>
-		</div> -->
+		<label>Category</label>
+		<select class="form-control" formControlName="category">
+			<option [ngValue]="null" selected>Select Category</option>
+			<option [ngValue]="categoryItem" *ngFor="let categoryItem of categories">
+				{{categoryItem}}
+			</option>
+		</select>
 	</div>
 	<div class="form-group">
-<label>Slip Number</label>
-		<input type="text" class="form-control" [ngClass]="{ 'is-invalid': form.slipNo.errors &amp;&amp; !form.slipNo.pristine }"
-		 formControlName="slipNo">
-		<!-- <div *ngIf="form.supplier.errors &amp;&amp; !form.supplier.pristine" class="invalid-feedback">
-			</div> -->
+		<label>Godown</label>
+		<select class="form-control" formControlName="godown">
+			<option [ngValue]="null" selected>Select Godown</option>
+			<option [ngValue]="godownItem" *ngFor="let godownItem of godowns">
+				{{godownItem}}
+			</option>
+		</select>
+	</div>
+	<div class="form-group" *ngIf="form.purchaseDate">
+		<label>Purchase Date</label>
+		<input type="date" class="form-control" data-date-format="DD MM YYYY" formControlName="purchaseDate">
+	</div>
+	<div class="form-group" *ngIf="form.saleDate">
+		<label>Sale Date</label>
+		<input type="date" class="form-control" data-date-format="DD MM YYYY" formControlName="saleDate">
+	</div>
+	<div class="form-group">
+		<label>Slip Number</label>
+		<input type="text" class="form-control" formControlName="slipNumber">
 	</div>
 	<div class="form-group">
 		<label>Model</label>
-		<input type="text" class="form-control" [ngClass]="{ 'is-invalid': form.model.errors &amp;&amp; !form.model.pristine }"
-		 formControlName="model">
-		<!-- <div *ngIf="form.supplier.errors &amp;&amp; !form.supplier.pristine" class="invalid-feedback">
-					</div> -->
+		<input type="text" class="form-control" formControlName="model">
+
 	</div>
 	<div class="form-group">
 		<label>
 			Size
 		</label>
-		<input type="text" class="form-control" [ngClass]="{ 'is-invalid': form.size.errors &amp;&amp; !form.size.pristine }"
-		 formControlName="size">
-		<!-- <div *ngIf="form.supplier.errors &amp;&amp; !form.supplier.pristine" class="invalid-feedback">
-					</div> -->
+		<input type="text" class="form-control" formControlName="size">
 	</div>
 	<div class="form-group">
 		<label>
 			Company
 		</label>
-		<input type="text" class="form-control" [ngClass]="{ 'is-invalid': form.company.errors &amp;&amp; !form.company.pristine }"
-		 formControlName="company">
-		<!-- <div *ngIf="form.supplier.errors &amp;&amp; !form.supplier.pristine" class="invalid-feedback">
-					</div> -->
+		<input type="text" class="form-control" formControlName="company">
 	</div>
 	<div class="form-group">
 		<label>Quantity</label>
-		<input type="text" class="form-control" [ngClass]="{ 'is-invalid': form.quantity.errors &amp;&amp; !form.quantity.pristine }"
-		 formControlName="quantity">
-		<!-- <div *ngIf="form.supplier.errors &amp;&amp; !form.supplier.pristine" class="invalid-feedback">
-								</div> -->
+		<input type="text" class="form-control" formControlName="quantity">
 	</div>
 	<div class="form-group">
 		<label>Salesman</label>
-		<input type="text" class="form-control" [ngClass]="{ 'is-invalid': form.salesman.errors &amp;&amp; !form.salesman.pristine }"
-		 formControlName="salesman">
-		<!-- <div *ngIf="form.supplier.errors &amp;&amp; !form.supplier.pristine" class="invalid-feedback">
-									</div> -->
+		<input type="text" class="form-control" formControlName="salesman">
 	</div>
 	<div class="form-group">
-			<label>Batch Number</label>
-			<input type="text" class="form-control" [ngClass]="{ 'is-invalid': form.salesman.errors &amp;&amp; !form.salesman.pristine }"
-			 formControlName="salesman">
-			<!-- <div *ngIf="form.supplier.errors &amp;&amp; !form.supplier.pristine" class="invalid-feedback">
-										</div> -->
-		</div>
-
-		<div class="form-group">
-				<label>Salesman</label>
-				<input type="text" class="form-control" [ngClass]="{ 'is-invalid': form.salesman.errors &amp;&amp; !form.salesman.pristine }"
-				 formControlName="salesman">
-				<!-- <div *ngIf="form.supplier.errors &amp;&amp; !form.supplier.pristine" class="invalid-feedback">
-											</div> -->
-			</div>
+		<label>Batch Number</label>
+		<input type="text" class="form-control" formControlName="batchNumber">
+	</div>
+	<div class="form-group" *ngIf="form.customer">
+		<label>Customer</label>
+		<input type="text" class="form-control" formControlName="customer">
+	</div>
 </form>

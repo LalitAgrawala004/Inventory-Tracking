@@ -45,12 +45,13 @@ export class PurchaseComponent implements OnInit {
 			category: [this.purchase.category],
 			godown: [this.purchase.godown],
 			purchaseDate: [this.purchase.purchaseDate],
-			slipNo: [this.purchase.slipNo],
+			slipNumber: [this.purchase.slipNumber],
 			model: [this.purchase.model],
 			size: [this.purchase.size],
 			company: [this.purchase.company],
 			quantity: [this.purchase.quantity],
-			salesman: [this.purchase.salesman]
+			salesman: [this.purchase.salesman],
+			batchNumber: [this.purchase.batchNumber]
 		});
 	}
 

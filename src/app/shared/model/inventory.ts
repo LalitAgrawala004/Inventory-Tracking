@@ -1,10 +1,15 @@
 export class Inventory {
-	purchaseDate?: Date;
-	salesDate?: Date;
-	quantity?: number;
-	salesman?: string;
+	batchNumber?: string;
+	category?: string;
 	company?: string;
-	size?: string;
+	godown?: string;
+	id?: string;
 	model?: string;
+	purchaseDate?: Date;
+	quantity?: number;
+	saleDate?: Date;
+	salesman?: string;
+	size?: string;
 	slipNumber?: string;
+	customer?: string;
 }
