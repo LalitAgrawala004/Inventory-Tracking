@@ -1,4 +1,5 @@
 export class Size {
-	id: string;
-	name: string;
+	model: string;
+	size: string;
+	company: string;
 }

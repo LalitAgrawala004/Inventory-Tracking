@@ -1,0 +1,31 @@
+<div class="card p-1">
+	<div class="card-header">
+		<h2>Size Entry</h2>
+	</div>
+	<div class="card-body">
+		<div class="container no-gutters">
+			<div class="row no-gutters">
+				<div class="col-sm-6 col-md-8 col-lg-9 col-xl-6">
+					<form [formGroup]="sizeForm">
+						<div class="form-group">
+							<label>Model</label>
+							<input type="text" class="form-control" formControlName="model">
+						</div>
+						<div class="form-group">
+							<label>Size</label>
+							<input type="text" class="form-control" formControlName="size">
+						</div>
+						<div class="form-group">
+							<label>Company</label>
+							<input type="text" class="form-control" formControlName="company">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="card-footer">
+		<button class="btn btn-outline-primary mr-3" (click)="addSize()" type="button">Save</button>
+		<button class="btn btn-outline-secondary" type="button">Cancel</button>
+	</div>
+</div>

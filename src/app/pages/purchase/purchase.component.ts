@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Company } from '../../shared/model/company';
-import { Size } from '../../shared/model/size';
+
 
 import { PurchaseService } from './purchase.service';
 
