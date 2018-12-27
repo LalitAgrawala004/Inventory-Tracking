@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 import { Inventory } from '../../shared/model/inventory';
 
+
 @Injectable()
 export class PurchaseService {
 	inventoryCollection: AngularFirestoreCollection<Inventory>;

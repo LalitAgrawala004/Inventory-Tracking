@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { Company } from '../../shared/model/company';
+import { Size } from '../../shared/model/size';
 
-
-import { PurchaseService } from './purchase.service';
+import { InventoryService } from '../../shared/services/inventory.service';
+import { Godown } from '../../shared/model/godown';
+import { Category } from 'src/app/shared/model/category';
 
 @Component({
 	selector: 'app-purchase',
@@ -16,18 +17,13 @@ export class PurchaseComponent implements OnInit {
 	purchaseForm: FormGroup;
 	purchase: any = {};
 
-	categories: string[] = [
-		'Wall', 'Floor', 'Granite', 'Sanitary', 'Others'
-	];
-
-	godowns: string[] = [
-		'Godown1', 'Godown2'
-	];
+	categories: Category[];
+	godowns: Godown[];
 
 
 	constructor(
 		private formBuilder: FormBuilder,
-		private purchaseService: PurchaseService
+		private inventoryService: InventoryService
 	) {
 	}
 
@@ -37,6 +33,17 @@ export class PurchaseComponent implements OnInit {
 		this.purchaseForm.valueChanges.subscribe(val => {
 			console.log('kjkjewlk', val);
 		});
+
+		this.purchaseForm.get('model').valueChanges.subscribe(val => {
+			if (typeof val === 'string') {
+				this.setSizeValues(undefined);
+				return;
+			}
+			this.setSizeValues(val);
+		});
+
+		this.inventoryService.Godowns$.subscribe(val => this.godowns = val);
+		this.inventoryService.Categories$.subscribe(val => this.categories = val);
 	}
 
 	private createPurchaseFormGroup(formBuilder: FormBuilder): FormGroup {
@@ -47,8 +54,8 @@ export class PurchaseComponent implements OnInit {
 			purchaseDate: [this.purchase.purchaseDate],
 			slipNumber: [this.purchase.slipNumber],
 			model: [this.purchase.model],
-			size: [this.purchase.size],
-			company: [this.purchase.company],
+			size: [{value: this.purchase.size, disabled: true}],
+			company: [{value: this.purchase.company, disabled: true}],
 			quantity: [this.purchase.quantity],
 			salesman: [this.purchase.salesman],
 			batchNumber: [this.purchase.batchNumber]
@@ -59,7 +66,17 @@ export class PurchaseComponent implements OnInit {
 		if (this.purchaseForm.invalid) {
 			return;
 		}
-		this.purchaseService.addItem(this.purchaseForm.value);
+		this.inventoryService.addPurchase(this.purchaseForm.value);
+	}
+
+	private setSizeValues(value: Size): void {
+		if (!value) {
+			this.purchaseForm.controls['size'].setValue('');
+			this.purchaseForm.controls['company'].setValue('');
+			return;
+		}
+		this.purchaseForm.controls['size'].setValue(value.size);
+		this.purchaseForm.controls['company'].setValue(value.company);
 	}
 
 }
