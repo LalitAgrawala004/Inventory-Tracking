@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 import { Size } from '../../shared/model/size';
 
@@ -23,6 +24,7 @@ export class PurchaseComponent implements OnInit {
 
 	constructor(
 		private formBuilder: FormBuilder,
+		private flashMessage: FlashMessagesService,
 		private inventoryService: InventoryService
 	) {
 	}
@@ -49,16 +51,16 @@ export class PurchaseComponent implements OnInit {
 	private createPurchaseFormGroup(formBuilder: FormBuilder): FormGroup {
 		return formBuilder.group({
 			// tslint:disable-next-line:max-line-length
-			category: [this.purchase.category],
-			godown: [this.purchase.godown],
-			purchaseDate: [this.purchase.purchaseDate],
-			slipNumber: [this.purchase.slipNumber],
-			model: [this.purchase.model],
-			size: [{value: this.purchase.size, disabled: true}],
-			company: [{value: this.purchase.company, disabled: true}],
-			quantity: [this.purchase.quantity],
-			salesman: [this.purchase.salesman],
-			batchNumber: [this.purchase.batchNumber]
+			category: [this.purchase.category, Validators.required],
+			godown: [this.purchase.godown, Validators.required],
+			purchaseDate: [this.purchase.purchaseDate, Validators.required],
+			slipNumber: [this.purchase.slipNumber, Validators.required],
+			model: [this.purchase.model, Validators.required],
+			size: [{value: this.purchase.size, disabled: true}, Validators.required],
+			company: [{value: this.purchase.company, disabled: true}, Validators.required],
+			quantity: [this.purchase.quantity, Validators.required],
+			salesman: [this.purchase.salesman, Validators.required],
+			batchNumber: [this.purchase.batchNumber, Validators.required]
 		});
 	}
 
@@ -67,6 +69,9 @@ export class PurchaseComponent implements OnInit {
 			return;
 		}
 		this.inventoryService.addPurchase(this.purchaseForm.value);
+		this.flashMessage.show('Purchase Addedng', {
+			cssClass: 'alert-success', timeout: 4000
+		  });
 	}
 
 	private setSizeValues(value: Size): void {

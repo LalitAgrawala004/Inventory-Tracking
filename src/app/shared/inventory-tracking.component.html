@@ -1,36 +1,57 @@
-<form [formGroup]="parent">
+<form [formGroup]="parent" class="needs-validation" novalidate>
 	<div class="form-group">
 		<label>Category</label>
-		<select class="form-control" formControlName="category">
+		<span class="required-icon">*</span>
+		<select class="form-control" formControlName="category" required>
 			<option [ngValue]="null" selected>Select Category</option>
 			<option [ngValue]="categoryItem" *ngFor="let categoryItem of categories">
 				{{categoryItem.name}}
 			</option>
 		</select>
+		<div *ngIf="form.category.errors &amp;&amp; !form.category.pristine">
+			<div class="invalid-feedback d-block">This is a required field.</div>
+		</div>
 	</div>
 	<div class="form-group">
 		<label>Godown</label>
+		<span class="required-icon">*</span>
 		<select class="form-control" formControlName="godown">
 			<option [ngValue]="null" selected>Select Godown</option>
 			<option [ngValue]="godownItem" *ngFor="let godownItem of godowns">
 				{{godownItem.name}}
 			</option>
 		</select>
+		<div *ngIf="form.godown.errors &amp;&amp; !form.godown.pristine">
+			<div class="invalid-feedback d-block">This is a required field.</div>
+		</div>
 	</div>
 	<div class="form-group" *ngIf="form.purchaseDate">
 		<label>Purchase Date</label>
+		<span class="required-icon">*</span>
 		<input type="date" class="form-control" data-date-format="DD MM YYYY" formControlName="purchaseDate">
+		<div *ngIf="form.purchaseDate.errors &amp;&amp; !form.purchaseDate.pristine">
+			<div class="invalid-feedback d-block">This is a required field.</div>
+		</div>
 	</div>
 	<div class="form-group" *ngIf="form.saleDate">
 		<label>Sale Date</label>
+		<span class="required-icon">*</span>
 		<input type="date" class="form-control" data-date-format="DD MM YYYY" formControlName="saleDate">
+		<div *ngIf="form.saleDate.errors &amp;&amp; !form.saleDate.pristine">
+			<div class="invalid-feedback d-block">This is a required field.</div>
+		</div>
 	</div>
 	<div class="form-group">
 		<label>Slip Number</label>
+		<span class="required-icon">*</span>
 		<input type="text" class="form-control" formControlName="slipNumber">
+		<div *ngIf="form.slipNumber.errors &amp;&amp; !form.slipNumber.pristine">
+			<div class="invalid-feedback d-block">This is a required field.</div>
+		</div>
 	</div>
 	<div class="form-group">
 		<label>Model</label>
+		<span class="required-icon">*</span>
 		<!-- <input type="text" class="form-control" formControlName="model"> -->
 		<input id="typeahead-http" type="text" class="form-control" [class.is-invalid]="searchFailed" formControlName="model" [ngbTypeahead]="search"
 			[resultTemplate]="rt"
@@ -38,6 +59,9 @@
 			[inputFormatter]="formatter"/>
 		<span *ngIf="searching">searching...</span>
 		<div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+		<div *ngIf="form.model.errors &amp;&amp; !form.model.pristine">
+			<div class="invalid-feedback d-block">This is a required field.</div>
+		</div>
 	</div>
 	<ng-template #rt let-r="result" let-t="term">
 		<ngb-highlight [result]="r.model" [term]="t"></ngb-highlight>
@@ -47,28 +71,46 @@
 		<label>
 			Size
 		</label>
+		<span class="required-icon">*</span>
 		<input type="text" class="form-control" formControlName="size">
 	</div>
 	<div class="form-group">
 		<label>
 			Company
 		</label>
+		<span class="required-icon">*</span>
 		<input type="text" class="form-control" formControlName="company">
 	</div>
 	<div class="form-group">
 		<label>Quantity</label>
+		<span class="required-icon">*</span>
 		<input type="text" class="form-control" formControlName="quantity">
+		<div *ngIf="form.quantity.errors &amp;&amp; !form.quantity.pristine">
+			<div class="invalid-feedback d-block">This is a required field.</div>
+		</div>
 	</div>
 	<div class="form-group">
 		<label>Salesman</label>
+		<span class="required-icon">*</span>
 		<input type="text" class="form-control" formControlName="salesman">
+		<div *ngIf="form.salesman.errors &amp;&amp; !form.salesman.pristine">
+			<div class="invalid-feedback d-block">This is a required field.</div>
+		</div>
 	</div>
 	<div class="form-group">
 		<label>Batch Number</label>
+		<span class="required-icon">*</span>
 		<input type="text" class="form-control" formControlName="batchNumber">
+		<div *ngIf="form.batchNumber.errors &amp;&amp; !form.batchNumber.pristine">
+			<div class="invalid-feedback d-block">This is a required field.</div>
+		</div>
 	</div>
 	<div class="form-group" *ngIf="form.customer">
 		<label>Customer</label>
+		<span class="required-icon">*</span>
 		<input type="text" class="form-control" formControlName="customer">
+		<div *ngIf="form.customer.errors &amp;&amp; !form.customer.pristine">
+			<div class="invalid-feedback d-block">This is a required field.</div>
+		</div>
 	</div>
 </form>

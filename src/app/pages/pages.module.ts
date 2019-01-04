@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { routes } from './pages.routes';
 
@@ -14,19 +15,22 @@ import { SalesComponent } from './sales/sales.component';
 import { SizeComponent } from './size/size.component';
 
 import { InventoryService } from '../shared/services/inventory.service';
+import { StockSummaryComponent } from './stock-summary/stock-summary.component';
 @NgModule({
 	declarations: [
 		HomeComponent,
 		PurchaseComponent,
 		SalesComponent,
-		SizeComponent
+		SizeComponent,
+		StockSummaryComponent
 	],
 	imports: [
 		BrowserModule,
 		FormsModule,
 		ReactiveFormsModule,
 		RouterModule.forChild(routes),
-		SharedModule
+		SharedModule,
+		FlashMessagesModule.forRoot()
 	],
 	providers: [
 		PurchaseService,

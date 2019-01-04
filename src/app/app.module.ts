@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { PagesModule } from './pages/pages.module';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
@@ -26,7 +27,8 @@ import { HeaderComponent } from './header/header.component';
 		RouterModule.forRoot(routes, { useHash: true }),
 		AngularFireModule.initializeApp(environment.firebase, 'inventory'),
 		AngularFirestoreModule,
-		AngularFireAuthModule
+		AngularFireAuthModule,
+		FlashMessagesModule.forRoot()
 	],
 	providers: [],
 	bootstrap: [AppComponent]

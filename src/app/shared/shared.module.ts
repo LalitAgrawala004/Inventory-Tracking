@@ -6,10 +6,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InventoryTrackingComponent } from './inventory-tracking.component';
 
 import { SizeService } from '../shared/services/size.service';
+import { SpinnerComponent } from './ui/spinner/spinner.component';
 
 @NgModule({
 	declarations: [
-		InventoryTrackingComponent
+		InventoryTrackingComponent,
+		SpinnerComponent
 	],
 	imports: [
 		BrowserModule,
@@ -22,7 +24,8 @@ import { SizeService } from '../shared/services/size.service';
 	],
 	bootstrap: [],
 	exports: [
-		InventoryTrackingComponent
+		InventoryTrackingComponent,
+		SpinnerComponent
 	],
 })
 export class SharedModule { }

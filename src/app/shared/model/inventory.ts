@@ -3,7 +3,7 @@ export class Inventory {
 	category?: string;
 	company?: string;
 	godown?: string;
-	id?: string;
+	purchaseId?: string;
 	model?: string;
 	purchaseDate?: Date;
 	quantity?: number;
@@ -12,4 +12,5 @@ export class Inventory {
 	size?: string;
 	slipNumber?: string;
 	customer?: string;
+	saleId?: string;
 }

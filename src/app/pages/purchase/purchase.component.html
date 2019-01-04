@@ -1,3 +1,4 @@
+<!-- <app-spinner [size]="'medium'"></app-spinner> -->
 <div class="card p-1">
 	<div class="card-header">
 		<h2>Purchase Entry</h2>
@@ -16,7 +17,11 @@
 		</div>
 	</div>
 	<div class="card-footer">
-			<button class="btn btn-outline-primary mr-3" (click)="save()" type="button">Save</button>
-			<button class="btn btn-outline-secondary" type="button">Cancel</button>
+			<button class="btn btn-outline-primary mr-3" (click)="save()" type="button"
+				[disabled]="!purchaseForm.valid">
+				Save
+			</button>
+			<button routerLink="/home" class="btn btn-outline-secondary" type="button">Cancel</button>
+			<flash-messages></flash-messages>
 	</div>
 </div>
